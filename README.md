@@ -5,6 +5,7 @@ If your Flutter project uses `fvm` to manage Flutter and Dart versions, you migh
 
 You can achieve this with the following steps:  
 
+- Add `protoc_plugin` to `dev_dependencies` in `pubspec.yml`.
 - Create an executable file at `scripts/protoc-gen-dart` that internally runs `fvm dart run protoc_plugin`.  
 - Specify the plugin directly to `protoc` by adding the option `--plugin=protoc-gen-dart=./scripts/protoc-gen-dart`.
 
