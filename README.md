@@ -1,16 +1,11 @@
 # flutter_fvm_protoc
 
-A new Flutter project.
+When you run `dart pub global activate protoc_plugin` as recommended in the official documentation for `protoc_plugin`, it generates a `protoc-gen-dart` executable that internally runs the `dart` command.
+If your Flutter project uses `fvm` to manage Flutter and Dart versions, you might want to avoid using the global `dart` command by replacing it with the `fvm dart` command.
 
-## Getting Started
+You can achieve this with the following steps:  
 
-This project is a starting point for a Flutter application.
+- Create an executable file at `scripts/protoc-gen-dart` that internally runs `fvm dart run protoc_plugin`.  
+- Specify the plugin directly to `protoc` by adding the option `--plugin=protoc-gen-dart=./scripts/protoc-gen-dart`.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+See `Makefile` for details.
